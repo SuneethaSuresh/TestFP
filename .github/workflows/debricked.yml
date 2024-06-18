@@ -16,6 +16,9 @@ jobs:
      - name: Run Finger Print
        run: |          
           debricked fingerprint
+          
+     - name: Scan 
+       run: |          
           debricked scan     
        env:
           DEBRICKED_URI: 'https://staging.debricked.com/'

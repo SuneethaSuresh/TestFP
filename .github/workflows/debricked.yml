@@ -21,6 +21,5 @@ jobs:
         run: |          
           debricked fingerprint
           debricked scan
-
         env:
           DEBRICKED_URI: 'https://debricked.com/'

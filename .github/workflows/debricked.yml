@@ -11,11 +11,7 @@ jobs:
 
     steps:
      - name: Checkout repository
-       uses: actions/checkout@v3
-
-     - name: Run Finger Print
-       run: |          
-          debricked fingerprint
+       uses: actions/checkout@v3     
           
      - name: Scan 
        run: |          

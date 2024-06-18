@@ -23,3 +23,5 @@ jobs:
           debricked scan
         env:
           DEBRICKED_URI: 'https://debricked.com/'
+          DEBRICKED_API_KEY: ${{ secrets.DEBRICKED_API_KEY }}
+          DEBRICKED_API_SECRET: ${{ secrets.DEBRICKED_API_SECRET }}

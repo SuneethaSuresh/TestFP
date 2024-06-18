@@ -24,4 +24,4 @@ jobs:
           debricked scan
 
         env:
-          DEBRICKED_URI: 'https://staging.debricked.com/'
+          DEBRICKED_URI: 'https://debricked.com/'

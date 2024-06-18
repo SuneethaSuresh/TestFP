@@ -1,27 +1,23 @@
-name: Debricked SCA
+name: Debricked
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  debricked:
+  scan:
     runs-on: ubuntu-latest
 
-    container:
-      image: debricked/cli:latest-resolution-debian
-      
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Find the files - prod
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.20'
+      - name: Pull Supported Formats
         run: |
-          debricked files find --json
-
-      - name: Find the files - review
-        run: |          
-          debricked fingerprint
-          debricked scan
-        env:
-          DEBRICKED_URI: 'https://debricked.com/'
-          DEBRICKED_API_KEY: ${{ secrets.DEBRICKED_API_KEY }}
-          DEBRICKED_API_SECRET: ${{ secrets.DEBRICKED_API_SECRET }}
+          cd cmd/debricked
+          go generate -v -x
+      - run: |
+          go run cmd/debricked/main.go scan -t ${{ secrets.DEBRICKED_TOKEN }} -e "pkg/**" -e "test/**" -e "**/testdata/**"

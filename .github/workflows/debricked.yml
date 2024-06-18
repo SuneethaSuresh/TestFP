@@ -19,6 +19,6 @@ jobs:
           
      - name: Scan 
        run: |          
-          debricked scan     
+          debricked scan -t "cdd438c7271c8e12a25278275162607fbc8ea84a4017d3b7"   
        env:
           DEBRICKED_URI: 'https://staging.debricked.com/'

@@ -18,8 +18,7 @@ jobs:
           debricked files find --json
 
       - name: Find the files - review
-        run: |
-          debricked files find --json
+        run: |          
           debricked fingerprint
           debricked scan
 

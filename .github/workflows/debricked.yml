@@ -15,6 +15,6 @@ jobs:
           
      - name: Scan 
        run: |          
-          debricked scan -t "cdd438c7271c8e12a25278275162607fbc8ea84a4017d3b7"   
+          debricked scan -t "01cfdc9dea6a1b412f5103e66924ec8fd15514ecb185d8b4"   
        env:
-          DEBRICKED_URI: 'https://staging.debricked.com/'
+          DEBRICKED_URI: 'https://review-7158-file-g0wf2o.review.debricked.dev'
